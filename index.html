@@ -114,7 +114,9 @@
     @media (max-width: 520px) { .barrow { grid-template-columns: 90px 1fr 56px; } }
 
     td.st { white-space: nowrap; font-weight: 700; }
-    .pill { display: inline-block; padding: 1px 8px; border: 1.5px solid var(--ink); font-size: 0.82rem; }
+    .pill { display: inline-block; padding: 1px 8px; border: 1.5px solid var(--ink); font-size: 0.82rem; color: var(--ink); }
+    tr.you .pill { color: var(--ink); }
+    tr.you .pill.yes { color: var(--on-lime); }
     .pill.yes { background: var(--lime); color: var(--on-lime); }
     .pill.maybe { background: var(--paper); }
     .pill.no { background: var(--paper); opacity: .6; }
