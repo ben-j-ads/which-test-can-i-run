@@ -123,6 +123,14 @@
     .pill.unknown { background: var(--paper); border-style: dashed; }
     ol.steps li { margin-bottom: 8px; }
 
+
+    /* polish: aligned inputs, chart label halo, next-step link */
+    .inputs, .adv { align-items: end; }
+    #chart .cap { paint-order: stroke; stroke: var(--paper-raised); stroke-width: 4px; stroke-linejoin: round; }
+    .next-step { border: 1px solid var(--rule); border-left: 4px solid var(--ink); background: var(--paper-raised); padding: 14px 16px; margin: 24px 0 0; }
+    .next-step .k { color: var(--ink-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+    .next-step a { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-transform: lowercase; }
+    .next-step p { margin: 4px 0 0; color: var(--ink-muted); font-size: 0.92rem; }
   </style>
 </head>
 <body>
@@ -136,27 +144,27 @@
     <section class="panel">
       <div class="inputs">
         <label class="field">Platform you want to test
-          <select id="plat"><option value="meta" selected>Meta</option><option value="google">Google</option><option value="other">TikTok or other</option></select></label>
+          <select autocomplete="off" id="plat"><option value="meta" selected>Meta</option><option value="google">Google</option><option value="other">TikTok or other</option></select></label>
         <label class="field">Spend on it in the last 12 months <span class="suffix">$</span>
-          <input type="number" id="sp12" min="0" step="1000" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="sp12" min="0" step="1000" inputmode="numeric"></label>
         <label class="field">Conversions you optimise for, last 90 days
-          <input type="number" id="cv90" min="0" step="10" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="cv90" min="0" step="10" inputmode="numeric"></label>
         <label class="field">Budget you would put into a brand lift study <span class="suffix">$</span>
-          <input type="number" id="bl" min="0" step="1000" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="bl" min="0" step="1000" inputmode="numeric"></label>
         <label class="field">Conversions per week from the ads
-          <input type="number" id="wk" min="0" step="5" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="wk" min="0" step="5" inputmode="numeric"></label>
         <label class="field">Test length (weeks)
-          <input type="number" id="wks" min="1" max="52" step="1" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="wks" min="1" max="52" step="1" inputmode="numeric"></label>
         <label class="field">Share you would hold out <span class="suffix">%</span>
-          <input type="number" id="h" min="1" max="50" step="1" inputmode="numeric"></label>
+          <input autocomplete="off" type="number" id="h" min="1" max="50" step="1" inputmode="numeric"></label>
         <label class="field">Smallest lift worth knowing <span class="suffix">% relative</span>
-          <input type="number" id="l" min="1" max="500" step="1" inputmode="decimal"></label>
+          <input autocomplete="off" type="number" id="l" min="1" max="500" step="1" inputmode="decimal"></label>
       </div>
       <div style="margin-top:14px">
-        <label class="check"><input type="checkbox" id="trk"> Conversion tracking is set up, checked, and de-duplicated</label>
-        <label class="check"><input type="checkbox" id="hold"> I can withhold ads from a random share of my audience</label>
-        <label class="check"><input type="checkbox" id="reg"> I can switch ads on or off by region</label>
-        <label class="check"><input type="checkbox" id="pause"> I can pause ads for two weeks or more</label>
+        <label class="check"><input autocomplete="off" type="checkbox" id="trk"> Conversion tracking is set up, checked, and de-duplicated</label>
+        <label class="check"><input autocomplete="off" type="checkbox" id="hold"> I can withhold ads from a random share of my audience</label>
+        <label class="check"><input autocomplete="off" type="checkbox" id="reg"> I can switch ads on or off by region</label>
+        <label class="check"><input autocomplete="off" type="checkbox" id="pause"> I can pause ads for two weeks or more</label>
       </div>
       <p class="hint">Answers stay in your browser. Thresholds are shown on the page with where they came from.</p>
       <div id="err" role="alert"></div>
@@ -231,6 +239,7 @@
       <p><b>The holdout figure assumes a clean split.</b> Leakage, repeat buyers and seasonality all make real tests noisier.</p>
     </section>
 
+    <section class="next-step"><div class="k">next</div><a href="https://holdout-sizer.benjads.com/">holdout sizer</a><p>Going with a holdout? Size it before you spend.</p></section>
     <footer class="site-foot">
       <picture><source media="(prefers-color-scheme: dark)" srcset="logo/benjads-footnote-paper-transparent.svg"><img src="logo/benjads-footnote-olive-transparent.svg" alt="ben.j.ads"></picture>
       <p><span class="tag">1</span>Thresholds reported by secondary sources, checked 2026-10-23. Holdout arithmetic: log rate ratio on conversion counts. Marketing science, given away free, for people who spend money.</p>
